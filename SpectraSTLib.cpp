@@ -154,4 +154,11 @@ void SpectraSTLib::retrieve(vector<SpectraSTLibEntry*>& hits,
 
         hits.push_back(newLibEntry);
     }
+
+    sqlite3_finalize(peptide_stmt);
+    sqlite3_finalize(peak_stmt);
+
+    sqlite3_close(db);
+    sqlite3_shutdown();
+    return;
 }
